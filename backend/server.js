@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const { scrapeHackerNews } = require('./controllers/scraperController');
 const scrapeRoutes = require('./routes/scrapeRoutes');
 const authRoutes = require('./routes/authRoutes');
+const storyRoutes = require('./routes/storyRoutes');
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api', scrapeRoutes);
 app.use('/api', authRoutes);
+app.use('/api', storyRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
