@@ -1,3 +1,9 @@
+## Live Demo
+
+- Frontend: https://dacby-assignment.vercel.app
+- Backend: https://dacby-backend.onrender.com
+
+
 # HackerNews Reader - DACBY Assignment
 
 A full-stack MERN application that scrapes Hacker News stories, displays them with authentication and bookmarking functionality.
