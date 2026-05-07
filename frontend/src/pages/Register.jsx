@@ -24,7 +24,7 @@ const Register = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/auth/register',
+        'https://dacby-assignment-fzq2.onrender.com/api/auth/register',
         formData
       );
       login(res.data.user, res.data.token);

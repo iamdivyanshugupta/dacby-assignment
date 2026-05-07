@@ -16,13 +16,13 @@ const Bookmarks = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        'http://localhost:5000/api/stories',
+        'https://dacby-assignment-fzq2.onrender.com/api/stories',
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       // Filter only bookmarked stories by checking user bookmarks
       const userRes = await axios.get(
-        'http://localhost:5000/api/auth/me',
+        'https://dacby-assignment-fzq2.onrender.com/api/auth/me',
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -42,7 +42,7 @@ const Bookmarks = () => {
   const handleRemoveBookmark = async (storyId) => {
     try {
       await axios.post(
-        `http://localhost:5000/api/stories/${storyId}/bookmark`,
+        `https://dacby-assignment-fzq2.onrender.com/api/stories/${storyId}/bookmark`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

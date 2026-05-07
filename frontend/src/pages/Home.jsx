@@ -19,7 +19,7 @@ const Home = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `http://localhost:5000/api/stories?page=${page}&limit=10`
+        `https://dacby-assignment-fzq2.onrender.com/api/stories?page=${page}&limit=10`
       );
       setStories(res.data.stories);
       setTotalPages(res.data.pagination.pages);
@@ -37,7 +37,7 @@ const Home = () => {
     }
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/stories/${storyId}/bookmark`,
+        `https://dacby-assignment-fzq2.onrender.com/api/stories/${storyId}/bookmark`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
