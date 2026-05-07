@@ -19,7 +19,7 @@ const Home = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `https://dacby-assignment-fzq2.onrender.com/api/stories?page=${page}&limit=10`
+        `https://dacby-backend.onrender.com/api/stories?page=${page}&limit=10`
       );
       setStories(res.data.stories);
       setTotalPages(res.data.pagination.pages);
@@ -37,7 +37,7 @@ const Home = () => {
     }
     try {
       const res = await axios.post(
-        `https://dacby-assignment-fzq2.onrender.com/api/stories/${storyId}/bookmark`,
+        `https://dacby-backend.onrender.com/api/stories/${storyId}/bookmark`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
