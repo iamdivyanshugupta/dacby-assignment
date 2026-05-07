@@ -41,12 +41,19 @@ const Home = () => {
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
+      
+      const isBookmarked = res.data.bookmarked !== undefined 
+        ? res.data.bookmarked 
+        : res.data.data?.bookmarked !== undefined 
+          ? res.data.data.bookmarked 
+          : !bookmarked[storyId];
+
       setBookmarked((prev) => ({
         ...prev,
-        [storyId]: res.data.bookmarked,
+        [storyId]: isBookmarked,
       }));
     } catch (err) {
-      alert('Failed to toggle bookmark');
+      alert(`Failed to toggle bookmark: ${err.response?.data?.message || err.message}`);
     }
   };
 

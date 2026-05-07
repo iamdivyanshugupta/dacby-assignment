@@ -26,7 +26,8 @@ const Bookmarks = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-      const bookmarkedIds = userRes.data.bookmarks.map((id) => id.toString());
+      const userBookmarks = userRes.data.bookmarks || userRes.data.data?.bookmarks || [];
+      const bookmarkedIds = userBookmarks.map((id) => id.toString());
       const storiesArray = res.data.stories || res.data.data || [];
       const bookmarkedStories = storiesArray.filter((story) =>
         bookmarkedIds.includes(story._id.toString())
@@ -49,7 +50,7 @@ const Bookmarks = () => {
       );
       setBookmarks((prev) => prev.filter((s) => s._id !== storyId));
     } catch (err) {
-      alert('Failed to remove bookmark');
+      alert(`Failed to remove bookmark: ${err.response?.data?.message || err.message}`);
     }
   };
 

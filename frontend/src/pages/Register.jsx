@@ -27,7 +27,9 @@ const Register = () => {
         'https://dacby-backend.onrender.com/api/auth/register',
         formData
       );
-      login(res.data.user, res.data.token);
+      const userData = res.data.user || res.data.data?.user;
+      const tokenData = res.data.token || res.data.data?.token;
+      login(userData, tokenData);
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
