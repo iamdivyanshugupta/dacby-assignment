@@ -27,7 +27,8 @@ const Bookmarks = () => {
       );
 
       const bookmarkedIds = userRes.data.bookmarks.map((id) => id.toString());
-      const bookmarkedStories = res.data.stories.filter((story) =>
+      const storiesArray = res.data.stories || res.data.data || [];
+      const bookmarkedStories = storiesArray.filter((story) =>
         bookmarkedIds.includes(story._id.toString())
       );
 

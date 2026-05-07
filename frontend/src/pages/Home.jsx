@@ -21,8 +21,8 @@ const Home = () => {
       const res = await axios.get(
         `https://dacby-backend.onrender.com/api/stories?page=${page}&limit=10`
       );
-      setStories(res.data.stories);
-      setTotalPages(res.data.pagination.pages);
+      setStories(res.data.stories || res.data.data || []);
+      setTotalPages(res.data.pagination?.pages || res.data.totalPages || 1);
     } catch (err) {
       setError('Failed to fetch stories');
     } finally {
