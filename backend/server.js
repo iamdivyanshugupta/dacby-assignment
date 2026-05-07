@@ -12,7 +12,9 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://dacby-assignment.vercel.app'],
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
   credentials: true,
 }));
 app.use(express.json());
